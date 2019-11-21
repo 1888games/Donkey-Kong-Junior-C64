@@ -44,6 +44,7 @@ NewGame: {
 		jsr SCORE.Reset
 		jsr LIVES.Reset
  		jsr ENEMIES.Reset
+ 		jsr CAGE.LockCage
 
 		rts
 	

@@ -7,7 +7,6 @@ ENEMIES:{
 	TickCounter: .byte 0, 0, 0, 0, 0, 0, 0, 0
 	FlaggedForDeletion: .byte 0, 0, 0, 0, 0, 0, 0, 0
 
-
 	EnableFlags: .byte %00010000, %00100000,%01000000,%10000000
 	MSBOffFlags: .byte %11101111, %11011111,%10111111,%01111111
 	CurrentFlag: .byte %11101111
@@ -15,7 +14,7 @@ ENEMIES:{
 	CurrentEnemy: .byte 0
 	CurrentSpritePointer: .byte 0
 	CurrentEnemies:		.byte 0
-	SpawnCooldown: .byte 0, 0		
+	SpawnCooldown: .byte 0, 0		// snapper, bird
 	TypeStartPosition: .byte 0, 6	// snapper, bird
 
 	.label MaxEnemies = 7
@@ -23,15 +22,8 @@ ENEMIES:{
 	.label SnapperFallFrame = 20
 	.label SpawnCooldownTime = 4
 	.label MoveRightThreshold = 13
-	
-	
-
-	// VIC.SPRITE_5_X, VIC.SPRITE_6_X, VIC.SPRITE_7_X
-	//SpriteY: VIC.SPRITE_4_Y, VIC.SPRITE_5_Y, VIC.SPRITE_6_Y, VIC.SPRITE_7_Y
 
 	RemoveClose:{
-
-		//rts
 
 		ldx #MaxEnemies
 		dex
@@ -42,16 +34,18 @@ ENEMIES:{
 			ldy Positions, x
 			cpy #99
 			beq EndLoop
-	
+
+			// should enemy be deleted when you die?
 			lda ENEMY_SPRITEDATA.DeleteUponLanding, y
 			beq EndLoop
 			
+			// enemy will be despawned when game restarts
 			sta FlaggedForDeletion, x
 
 			EndLoop:
+
 				cpx #ZERO
 				beq Finish
-				
 				dex
 				jmp ClearLoop
 
@@ -59,6 +53,7 @@ ENEMIES:{
 			rts
 	}
 
+	// Reset for new game
 	Reset:{
 
 		lda #ZERO
@@ -158,14 +153,12 @@ ENEMIES:{
 
 	DespawnEnemy: {
 
-
 		// Index passed in X
 		lda #99
 		sta Positions, x
 		dec CurrentEnemies
 		
 		rts
-
 
 	}
 
@@ -181,25 +174,17 @@ ENEMIES:{
 		sta CurrentSpritePointer
 		ldx #ZERO
 
-		// Turn on enemy sprites
-		// lda VIC.SPRITE_ENABLE
-		// ora #%11110000
-		// sta VIC.SPRITE_ENABLE
-
 		EnemyLoop:
 
 			// store enemy index as need x registerlater
 
 			stx CurrentEnemy
 
-			lda FlaggedForDeletion, x 
-			//bne Despawn
-
+			// stop if we already used four sprites on this row
 			lda #4
 			cmp CurrentSpritePointer
 			beq EndLoop
 
-		
 
 			// Get position of enemy, if 99 is inactive
 			lda Positions, x
@@ -214,12 +199,9 @@ ENEMIES:{
 			cmp CurrentRow
 			bne EndLoop
 
+			// now ok to draw the enemy sprite
 			jsr DrawEnemy
 			jmp EndLoop
-
-		Despawn:
-			jsr DespawnEnemy
-
 
 		EndLoop:
 
@@ -335,12 +317,9 @@ ENEMIES:{
 			rol
 			sta ZP_ODD_EVEN
 
-			//sta $d020
-
-
+			
 			lda TickCounter, x
 
-			//sta $d021
 			cmp ZP_ODD_EVEN
 			bne EndLoop
 

@@ -26,7 +26,6 @@ CAGE:{
 
 		lda #ZERO
 		sta SectionsUnlocked
-
 		jsr Sad
 	}
 
@@ -180,7 +179,7 @@ CAGE:{
 
 	}
 
-	
+
 	Sad:{
 
 		lda #SadCharacter

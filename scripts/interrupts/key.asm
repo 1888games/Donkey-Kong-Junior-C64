@@ -5,7 +5,7 @@ KEY:{
 	Position: 	.byte 0
 	XPos:		.byte 150, 146, 138, 125
 	YPos:		.byte 80, 81, 82, 82
-	WillCatch:	.byte 0, 0, 0, 1, 1, 0, 0
+	WillCatch:	.byte 0, 0, 0, 0, 1, 0, 0
 	Active:		.byte 1
 	ForceKey: 	.byte 0
 
@@ -44,14 +44,8 @@ KEY:{
 		lda MONKEY.GoingForKey
 		bne Wait
 
-
-
 		ldy Position
 		lda WillCatch, y
-		lda #4
-		sta Position
-		//jsr DrawKey2
-
 		beq MissedKey
 
 		CaughtKey:

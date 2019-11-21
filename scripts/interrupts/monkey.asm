@@ -16,6 +16,7 @@ MONKEY:{
 	DisableControl: .byte 0
 	HitByEnemy: .byte 0
 	Invisible: .byte 0
+	JumpedOverEnemy: .byte 0
 
 
 	.label DropTime = 49
@@ -121,18 +122,26 @@ MONKEY:{
 		jmp Complete
 
 	CheckWhetherToDrop:
+
 		lda ZP_COUNTER
 		cmp #DropTime
 		bne TopLeft
 
+		lda JumpedOverEnemy
+		beq DontAwardPoint
 
+		jsr SCORE.JumpEnemy
 
-		lda CellID
-		sbc #6
-		sta CellID
-		tax
-		lda #ZERO
-		sta IsFalling
+		DontAwardPoint:
+
+			sec
+			lda CellID
+			sbc #6
+			sta CellID
+			tax
+			lda #ZERO
+			sta IsFalling
+			sta JumpedOverEnemy
 
 	TopLeft:
 
@@ -293,6 +302,22 @@ MONKEY:{
 
 	}
 
+
+	ResetFlags: {
+
+		lda #ZERO
+		sta JOY_FIRE_NOW
+		sta JOY_RIGHT_NOW
+		sta JOY_LEFT_NOW
+		sta JOY_UP_NOW
+		sta JOY_DOWN_NOW
+
+		lda REGISTERS.JOY_PORT_2
+		sta JOY_ZP2
+		rts
+
+	}
+
 	Control: {
 
 		lda FireCooldown
@@ -308,53 +333,98 @@ MONKEY:{
 		.label WillFall = TEMP3
 		.label CanJump = TEMP4
 		.label EnemyKillPosition = TEMP5
+		.label FireButtonUpThisFrame = TEMP6
+
+		lda #ZERO
+		sta FireButtonUpThisFrame 
 
 		lda DisableControl
 		bne Complete
 
-		lda REGISTERS.JOY_PORT_2
-		sta JOY_ZP2
+		jsr ResetFlags
+
+		// Check whether fire button released this frame
+		CheckFire:
+
+			// Check i fire held now
+			lda JOY_ZP2
+			and #JOY_FIRE
+			bne CheckFireUp
+
+			// Fire held now
+			lda #ONE
+			sta JOY_FIRE_NOW
+			sta JOY_FIRE_LAST
+			sta FireButtonUpThisFrame
+			jmp CheckRight
+
+			// Fire not held now
+			CheckFireUp:
+
+				lda #ZERO
+				sta JOY_FIRE_NOW
+
+				lda JOY_FIRE_LAST
+				sta FireButtonUpThisFrame 
+
+				lda #ZERO
+				sta JOY_FIRE_LAST
+
 
 		CheckRight:
+
 			lda JOY_ZP2
 			and #JOY_RIGHT
-			bne CheckLeft
+			bne RightUp
+
 			jmp HandleRight
+			
+			RightUp:
+				lda #ZERO
+				sta JOY_RIGHT_LAST
 
 		CheckLeft:
 
 			lda JOY_ZP2
 			and #JOY_LEFT
-			bne CheckUp
+			bne LeftUp
+
 			jmp HandleLeft
 
+			LeftUp:
+				lda #ZERO
+				sta JOY_LEFT_LAST
+
+
 		CheckUp:
+
 			lda JOY_ZP2
 			and #JOY_UP
-			bne CheckDown
-			jmp HandleUp
+			bne UpUp
 
+			jmp HandleUp
+			
+			UpUp:
+				lda #ZERO
+				sta JOY_UP_LAST
 
 		CheckDown:
+
 			lda JOY_ZP2
 			and #JOY_DOWN
-			bne CheckFire
-			jmp HandleDown
+			bne DownUp
 
-		CheckFire:
-			lda JOY_ZP2
-			and #JOY_FIRE
-			bne NothingPressed
-			jmp HandleFire 
+			jmp HandleDown
+			
+			DownUp:
+				lda #ZERO
+				sta JOY_DOWN_LAST
 
 		NothingPressed:
 
-			lda #ZERO
-			sta JOY_RIGHT_LAST
-			sta JOY_LEFT_LAST
-			sta JOY_UP_LAST
-			sta JOY_DOWN_LAST
-			sta JOY_FIRE_LAST
+		Complete:	
+			lda FireButtonUpThisFrame
+			bne HandleFire2
 			rts
 
 		HandleRight: {
@@ -378,6 +448,7 @@ MONKEY:{
 
 			ldy SPRITEDATA.CheckWhenMovingRight, x
 			sty EnemyKillPosition
+			ldy #ONE
 			jsr CheckWhetherEnemies
 			lda HitByEnemy
 			bne Complete
@@ -389,36 +460,41 @@ MONKEY:{
 
 		}
 
+		HandleFire2: {
 
-		Complete:	
-
-			rts
+			jmp HandleFire
+		}
 
 		HandleLeft:{
+
+			// can't move left if in column 0
+			lda #ZERO
+			cmp CurrentColumn
+			beq Complete
+
+			// can't move if falling
+			lda SPRITEDATA.WillFall, x
+			cmp #ONE
+			beq Complete
+
+			// check if jumping for key
+			cpx #KeyJumpSpot
+			bne NotInKeyJumpSpot
+			
+			lda FireButtonUpThisFrame
+			bne GoForKey
+
+			jmp ExitViaFire
+
+			NotInKeyJumpSpot:
 
 			lda JOY_LEFT_LAST
 			cmp #ONE
 			beq Complete
 
-			lda SPRITEDATA.WillFall, x
-			cmp #ONE
-			beq Complete
-
 			lda #ONE
 			sta JOY_LEFT_LAST
-			lda #ZERO
-			
-			cmp CurrentColumn
-			beq Complete
-
-			cpx #KeyJumpSpot
-			bne MoveLeft
-			lda FireCooldown
-			bne GoForKey
-
-			lda JOY_ZP2
-			and #JOY_FIRE
-			bne Complete
+			jmp MoveLeft
 			
 			GoForKey:
 
@@ -428,12 +504,22 @@ MONKEY:{
 			sta GoingForKey
 			sta DisableControl
 			jsr SID.MoveMonkey
-			jmp Complete
+			lda #ONE
+			sta JOY_LEFT_LAST
+			lda #ZERO
+			sta JOY_FIRE_LAST
+
+			jmp ExitViaFire
+
 
 			MoveLeft:
 
+				lda #ZERO
+				sta FireButtonUpThisFrame
+
 				ldy SPRITEDATA.CheckWhenMovingLeft, x
 				sty EnemyKillPosition
+				ldy #ONE
 				jsr CheckWhetherEnemies
 
 				lda HitByEnemy
@@ -447,29 +533,44 @@ MONKEY:{
 		Complete2:
 			jmp Complete
 
+		ExitViaFire:
+			rts
+
 		HandleFire:{
 
 			lda #20
 			sta FireCooldown
-
-			lda JOY_FIRE_LAST
-			cmp #ONE
-			beq Complete
-
-			lda #ONE
-			sta JOY_FIRE_LAST
-			lda #ZERO
 			
 			lda SPRITEDATA.CanJump, x
 			cmp #ZERO
-			beq Complete2
+			beq ExitViaFire
 
+
+			// Jump!
 			lda CellID
 			adc #5
 			sta CellID
-			//dec $d020
 			jsr SID.MoveMonkey
-			jmp Complete2
+
+			ldy SPRITEDATA.Row, x
+			beq CheckEnemyToRight
+
+			ldy SPRITEDATA.CheckWhenMovingLeft, x
+			sty EnemyKillPosition
+			ldy #ZERO
+			jsr CheckWhetherEnemies
+			jmp Finish
+
+			CheckEnemyToRight:
+
+				ldy SPRITEDATA.CheckWhenMovingRight, x
+				sty EnemyKillPosition
+				ldy #ZERO
+				jsr CheckWhetherEnemies
+
+			Finish:
+
+			jmp ExitViaFire
 		}
 
 		HandleDown:{
@@ -495,6 +596,8 @@ MONKEY:{
 				sbc #6
 				sta CellID
 				jsr SID.MoveMonkey
+				lda #ZERO
+				sta JumpedOverEnemy
 				jmp Complete
 		}
 
@@ -533,7 +636,15 @@ MONKEY:{
 
 			HitEnemy:
 
+				cpy #ONE
+				bne DontKill
+
 				jsr Kill
+				jmp Finish
+
+				DontKill:
+				lda #ONE
+				sta JumpedOverEnemy
 				jmp Finish
 
 

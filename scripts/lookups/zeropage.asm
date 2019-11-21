@@ -37,6 +37,11 @@ JOY_LEFT_LAST:  .byte $00
 JOY_DOWN_LAST: .byte $00
 JOY_UP_LAST:  .byte $00
 JOY_FIRE_LAST: .byte $00
+JOY_RIGHT_NOW:  .byte $00
+JOY_LEFT_NOW:  .byte $00
+JOY_DOWN_NOW: .byte $00
+JOY_UP_NOW:  .byte $00
+JOY_FIRE_NOW: .byte $00
 
 
 .label MAX_SPRITES = 8

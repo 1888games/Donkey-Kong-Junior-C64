@@ -3,6 +3,7 @@ SCORE:{
 
 	KeyScore: .byte 10, 10
 	UnlockScore: .byte 20
+	JumpScore: .byte 1
 	Value: .byte 0, 0, 0	// H M L
 	.label Amount = TEMP1
 
@@ -31,6 +32,15 @@ SCORE:{
 		sta ScoreToAdd
 		rts
 
+
+	}
+
+	JumpEnemy: {
+
+		lda JumpScore
+		sta Amount
+		jsr AddToScore
+		rts
 
 	}
 
