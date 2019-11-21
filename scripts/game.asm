@@ -36,21 +36,8 @@ Entry:
 		jsr IRQ.SetupInterrupts
 		jsr Random.init
 
-
 		jsr NewGame
-
-		//ldy #ZERO
-		//jsr ENEMIES.Spawn
-
-		// ldy #ZERO
-		// jsr ENEMIES.Spawn
-
-		// ldy #ONE
-		// jsr ENEMIES.Spawn
-		
 		jmp MainLoop
-
-
 
 NewGame: {
 
