@@ -12,7 +12,7 @@ CAGE:{
 	SectionUnlocked: .byte 0,0,0,0
 
 	.label MouthCharacterID = 167
-	.label SmileCharacter = 254
+	.label SmileCharacter = 250
 	.label SadCharacter = 18
 	.label NumberOfSections = 4
 

@@ -17,10 +17,15 @@ BasicUpstart2(Entry)
 #import "interrupts/score.asm"
 #import "interrupts/lives.asm"
 #import "interrupts/enemies.asm"
+#import "interrupts/pineapple.asm"
+
 
 PerformFrameCodeFlag: .byte $00
-GameCounter:		.byte 5, 25
+						// current, currentMax, startValue
+GameCounter:		.byte 24, 24, 27
 GameTickFlag:	.byte $00
+SpeedIncreaseCounter: .byte 48, 48
+.label MaxSpeed = 13
 
 Entry:
 		
@@ -36,6 +41,10 @@ Entry:
 		jsr IRQ.SetupInterrupts
 		jsr Random.init
 
+		jsr VIC.ColourLastRow
+
+
+
 		jsr NewGame
 		jmp MainLoop
 
@@ -45,6 +54,14 @@ NewGame: {
 		jsr LIVES.Reset
  		jsr ENEMIES.Reset
  		jsr CAGE.LockCage
+
+		ldx #0
+		jsr PINEAPPLE.MovePineapple
+
+		lda GameCounter + 2
+		sta GameCounter + 1
+		sta GameCounter
+		//jsr PINEAPPLE.StartFall
 
 		rts
 	
@@ -76,29 +93,42 @@ FrameCode: {
 		
 		inc ZP_COUNTER
 
+		jsr PINEAPPLE.Update
 		jsr CheckWhetherToUpdateScore
+
+
 
 }	
 
 
+CheckGameSpeed:{
 
-GameTick: {
-	
-		lda GameTickFlag
-		beq MainLoop
-		dec GameTickFlag
+		dec SpeedIncreaseCounter
+		bne NoSpeedIncrease
 
-		jsr KEY.Update
-		jsr CAGE.Update
-		jsr ENEMIES.Update
+		lda SpeedIncreaseCounter + 1
+		sta SpeedIncreaseCounter
 
-		lda KEY.Active
-		beq Finish
+		lda GameCounter + 1
+		cmp #MaxSpeed
+		beq NoSpeedIncrease
+
+		dec GameCounter + 1
+		dec GameCounter +1
+
+		NoSpeedIncrease:
+
+			rts
+}
+
+
+CheckSpawn:{
+
 
 		jsr Random
-		cmp #50
+		cmp #45
 		bcc DoZero
-		cmp #205
+		cmp #210
 		bcs Finish
 
 		ldy #ONE
@@ -108,6 +138,28 @@ GameTick: {
 		DoZero:
 			ldy #ZERO
 		 	jsr ENEMIES.Spawn
+
+		 Finish:
+
+		rts
+}
+
+GameTick: {
+
+		
+		lda GameTickFlag
+		beq MainLoop
+		dec GameTickFlag
+
+		jsr KEY.Update
+		jsr CAGE.Update
+		jsr ENEMIES.Update
+		
+		lda KEY.Active
+		beq Finish
+
+		jsr CheckGameSpeed
+		jsr CheckSpawn
 
 		Finish:
 		

@@ -17,9 +17,9 @@ MONKEY:{
 	HitByEnemy: .byte 0
 	Invisible: .byte 0
 	JumpedOverEnemy: .byte 0
+	DropTime: .byte 0
 
 
-	.label DropTime = 49
 	.label BlankSprite = 99
 	.label SpriteAddressStart = 64
 	.label SpriteWidth = 24
@@ -31,6 +31,8 @@ MONKEY:{
 	.label SingleVineLevelTwo = 22
 	.label MaxColumn = 5
 	.label DeathTime = 4
+	.label GetPineappleSpot = 21
+	.label UpTreeSpot = 22
 
 
 
@@ -63,15 +65,16 @@ MONKEY:{
 		sta AtCage
 		sta FallGracefully
 		sta HitByEnemy
+		sta CellID
 		lda #%00000000
 		sta VIC.SPRITE_ENABLE
 
 		lda #CYAN
 		sta $d021
 
-		lda #0
+	
+		jsr PINEAPPLE.Reset
 
-		sta CellID
 
 		rts
 
@@ -124,7 +127,7 @@ MONKEY:{
 	CheckWhetherToDrop:
 
 		lda ZP_COUNTER
-		cmp #DropTime
+		cmp DropTime
 		bne TopLeft
 
 		lda JumpedOverEnemy
@@ -468,8 +471,11 @@ MONKEY:{
 		HandleLeft:{
 
 			// can't move left if in column 0
-			lda #ZERO
-			cmp CurrentColumn
+			lda CurrentColumn
+			beq Complete
+
+			// can't move left if up tree on top row
+			cpx #UpTreeSpot
 			beq Complete
 
 			// can't move if falling
@@ -550,6 +556,14 @@ MONKEY:{
 			lda CellID
 			adc #5
 			sta CellID
+
+			cmp #GetPineappleSpot
+			bne NoPineapple
+
+			jsr PINEAPPLE.StartFall
+
+			NoPineapple:
+
 			jsr SID.MoveMonkey
 
 			ldy SPRITEDATA.Row, x

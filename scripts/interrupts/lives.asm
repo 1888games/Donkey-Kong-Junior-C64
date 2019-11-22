@@ -3,7 +3,7 @@ LIVES:{
 
 	Value: .byte 3, 3
 
-	.label HeartCharacter = 253
+	.label HeartCharacter = 249
 	.label BlankCharacter = 0
 
 	.label StartCharacterPosition = SCREEN_RAM + 142

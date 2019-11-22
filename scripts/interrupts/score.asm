@@ -4,8 +4,10 @@ SCORE:{
 	KeyScore: .byte 10, 10
 	UnlockScore: .byte 20
 	JumpScore: .byte 1
+	HitScores: .byte 9, 6, 3
 	Value: .byte 0, 0, 0	// H M L
 	.label Amount = TEMP1
+	.label CharacterSetStart = 232
 
 	ScoreToAdd: .byte 0
 
@@ -32,6 +34,17 @@ SCORE:{
 		sta ScoreToAdd
 		rts
 
+
+	}
+
+	HitEnemy: {
+
+		// enemy row passed in y
+
+		lda HitScores, y
+		sta Amount
+		jsr AddToScore
+		rts
 
 	}
 
@@ -128,7 +141,7 @@ SCORE:{
 		PlotDigit: {
 
 			clc
-			adc #236
+			adc #CharacterSetStart
 			sta SCREEN_RAM + 148, y
 			dey
 			rts

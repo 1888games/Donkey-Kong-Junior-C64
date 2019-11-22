@@ -65,18 +65,19 @@ IRQ: {
 
 		:StoreState()
 
-		dec $d020
+		//dec $d020
 
 		ldy #2
 		jsr ENEMIES.DrawEnemiesForRow
 
+		clc
 		dec MAIN.GameCounter
-		lda MAIN.GameCounter
-		cmp #ZERO
 		bne NotYet
 
 		lda MAIN.GameCounter + 1
 		sta MAIN.GameCounter
+		asl 
+		sta MONKEY.DropTime
 		lda #ONE
 		sta MAIN.GameTickFlag
 
@@ -89,7 +90,7 @@ IRQ: {
 		ldy #BirdRasterLine
 		jsr SetNextInterrupt
 
-		sta $d020
+		//sta $d020
 
 		:RestoreState()
 
@@ -104,7 +105,7 @@ IRQ: {
 
 		:StoreState()
 
-		dec $d020
+		//dec $d020
 
 		ldy #ONE
 		jsr ENEMIES.DrawEnemiesForRow
@@ -118,7 +119,7 @@ IRQ: {
 		ldy #Snapper2RasterLine
 		jsr SetNextInterrupt
 
-		inc $d020
+		//inc $d020
 
 		:RestoreState()
 
@@ -133,7 +134,7 @@ IRQ: {
 
 		:StoreState()
 
-		dec $d020
+		//dec $d020
 
 		ldy #ZERO
 		jsr ENEMIES.DrawEnemiesForRow
@@ -146,7 +147,7 @@ IRQ: {
 		ldy #1
 		jsr SetNextInterrupt
 
-		inc $d020
+		//inc $d020
 
 		:RestoreState()
 
@@ -164,7 +165,7 @@ IRQ: {
 		
 		:StoreState()
 
-		dec $d020
+		//dec $d020
 
 		jsr MONKEY.Control
 		jsr MONKEY.Draw
@@ -177,7 +178,7 @@ IRQ: {
 		ldy #Snapper1RasterLine
 		jsr SetNextInterrupt
 
-		inc $d020
+		//inc $d020
 
 		:RestoreState()
 
@@ -189,7 +190,7 @@ IRQ: {
 
 		:StoreState()
 
-		dec $d020
+		//dec $d020
 
 		lda #ONE
 		sta MAIN.PerformFrameCodeFlag
@@ -205,7 +206,7 @@ IRQ: {
 		ldy #88
 		jsr SetNextInterrupt
 
-		inc $d020
+		//inc $d020
 
 		:RestoreState()
 
