@@ -1,0 +1,19 @@
+parsing
+flex pass 1
+flex pass 2
+Output pass
+Writing prg file: C:\C64\DKJ\vic20\scripts\bin\gameVIC.prg
+
+Memory Map
+----------
+Default-segment:
+  *$00fb-$00fe Temp vars zero page
+  $1200-$122d BASIC Stub
+  $122e-$1383 Entry
+  $1400-$189f Title Charset
+  $1c00-$1fdf Charset
+  $2000-$3216 Unnamed
+  $4000-$448d Screen data
+
+Writing Vice symbol file: C:\C64\DKJ\vic20\scripts\bin\gameVIC.vs
+Writing Symbol file: gameVIC.sym
