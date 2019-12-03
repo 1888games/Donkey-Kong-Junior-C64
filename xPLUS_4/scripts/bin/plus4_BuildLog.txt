@@ -1,0 +1,20 @@
+parsing
+flex pass 1
+flex pass 2
+Output pass
+Writing prg file: C:\C64\DKJ\xPLUS_4\scripts\bin\plus4.prg
+
+Memory Map
+----------
+Default-segment:
+  *$00d0-$00d3 Temp vars zero page
+  $1000-$102d BASIC Stub
+  $102e-$119f Entry
+  $1200-$176b Code1
+  $1800-$1c8f Title Charset
+  $2000-$26ef Charset
+  $2700-$2db3 Screen data
+  $2e00-$39bb Unnamed
+
+Writing Vice symbol file: C:\C64\DKJ\xPLUS_4\scripts\bin\plus4.vs
+Writing Symbol file: plus4.sym

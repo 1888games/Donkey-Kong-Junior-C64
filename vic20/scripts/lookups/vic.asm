@@ -22,15 +22,10 @@ ColorRowMSB:
 
 Setup:{
 
+	
 
 		lda #%00111101
 		sta BORDER_BACKGROUND
-
-		lda #3
-		sta COLOR_RAM
-
-		lda #5
-		sta SCREEN_RAM
 
 		lda CHAR_RAM
 		ora #%00001111  // $1C00

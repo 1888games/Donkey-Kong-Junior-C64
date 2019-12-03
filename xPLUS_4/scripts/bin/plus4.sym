@@ -1,0 +1,655 @@
+.label ZERO=$0
+.label JOY_FIRE_LAST=$1503
+.label CHAR_DATA=$1200 {
+  .label Monkey_21=$1463
+  .label Monkey_20=$1451
+  .label Monkey_24=$1489
+  .label Monkey_23=$1487
+  .label Monkey_22=$1475
+  .label DataStart=$1200
+  .label Monkey_2=$1311
+  .label Sizes=$12b3 {
+  }
+  .label Monkey_3=$1323
+  .label Monkey_0=$12ed
+  .label Monkey_1=$12ff
+  .label TypeColours=$12ae
+  .label Monkey_8=$137d
+  .label Monkey_9=$138f
+  .label Monkey_6=$1359
+  .label Monkey_7=$136b
+  .label Monkey_4=$1335
+  .label Monkey_5=$1347
+  .label Snapper_2=$14a1
+  .label Snapper_3=$14a3
+  .label Snapper_0=$149d
+  .label Snapper_1=$149f
+  .label Snapper_11=$14bb
+  .label Snapper_8=$14c1
+  .label Cage_4=$14eb
+  .label Snapper_12=$14b9
+  .label Snapper_9=$14bf
+  .label Cage_3=$14e5
+  .label Bird_6=$14b5
+  .label Snapper_6=$14c5
+  .label Bird_7=$14b7
+  .label Snapper_10=$14bd
+  .label Snapper_7=$14c3
+  .label Snapper_4=$14a5
+  .label Snapper_5=$14a7
+  .label Bird_2=$14ad
+  .label ObjectType=$1274
+  .label Bird_3=$14af
+  .label Bird_4=$14b1
+  .label Bird_5=$14b3
+  .label Cage_2=$14dd
+  .label Cage_1=$14d7
+  .label Bird_0=$14a9
+  .label Bird_1=$14ab
+  .label Key_0=$14c7
+  .label Key_1=$14c9
+  .label Key_2=$14cb
+  .label Key_3=$14cd
+  .label Monkey_10=$13a1
+  .label Monkey_14=$13e9
+  .label Monkey_13=$13d7
+  .label Monkey_12=$13c5
+  .label Monkey_11=$13b3
+  .label Monkey_18=$1431
+  .label Pineapple_2=$14d3
+  .label Monkey_17=$141f
+  .label Pineapple_1=$14d1
+  .label Monkey_16=$140d
+  .label Monkey_15=$13fb
+  .label Pineapple_3=$14d5
+  .label Pineapple_0=$14cf
+  .label Monkey_19=$143f
+}
+.label JOY_DOWN=$2
+.label MAPLOADER=$15a6 {
+  .label Column=$15aa
+  .label DrawMap=$15ac {
+    .label Screen=$1607
+    .label TileColumnLoop=$15d4
+    .label TileLookup=$1601
+    .label NextRow=$1661
+    .label TileRowLoop=$15cf
+    .label Tile=$15de
+    .label NextColumn=$1628
+    .label Colour=$1611
+  }
+  .label Row=$15ab
+  .label TileScreenLocations=$15a6
+}
+.label CHAR_SET=$2000
+.label MAIN=$2000 {
+  .label FrameSwitch=$39b9
+  .label Loop=$1038
+  .label GameCounter=$39b4
+  .label MaxSpeed=$d
+  .label CheckWhetherToUpdateScore=$10eb {
+    .label NoScoreAdd=$10f5
+  }
+  .label WaitForRasterLine=$10df {
+    .label Loop=$10e2
+    .label RasterTarget=$14f1
+  }
+  .label TitleCooldown=$39ba
+  .label GameTick=$112a {
+    .label PerformTick=$1138
+    .label FlipOn=$1145
+    .label NoSound=$1176
+    .label RestoreCounter=$114a
+    .label Finish=$116e
+  }
+  .label TestLoop=$10dc {
+  }
+  .label MainLoop=$1177
+  .label TitleScreen=$103b {
+    .label DrawMap=$1052
+  }
+  .label Entry=$102e
+  .label CheckSpawn=$10f6 {
+    .label DoZero=$110b
+    .label Finish=$1110
+  }
+  .label Random=$119c {
+  }
+  .label MonkeyIRQ=$117f {
+  }
+  .label SpeedIncreaseCounter=$39b7
+  .label NewGame=$10a1 {
+  }
+  .label TitleLoop=$105e {
+    .label Loop=$1091
+    .label temp=$14f1
+    .label JOYSTICKSELECT1=$2
+    .label GetJoystick=$1069
+    .label gatherJoystick2=$1080
+    .label gatherJoystick1=$1072
+  }
+  .label CheckGameSpeed=$1111 {
+    .label NoSpeedIncrease=$1129
+  }
+}
+.label TEMP1=$14f1
+.label JOY_DOWN_LAST=$1501
+.label TEMP2=$14f2
+.label ENEMIES=$31e3 {
+  .label FlaggedForDeletion=$31f3
+  .label TypeStartPosition=$31fe
+  .label SnapperTurnFrame=$5
+  .label DrawEnemy=$32be {
+    .label Finish=$32cd
+  }
+  .label SnapperFallFrame=$14
+  .label CurrentEnemy=$3200
+  .label SpawnCooldownTime=$4
+  .label RemoveClose=$3201 {
+    .label EnemyID=$14f8
+    .label EndLoop=$3229
+    .label Finish=$3231
+    .label ClearLoop=$3205
+  }
+  .label GetFreeEnemyIndex=$3262 {
+    .label Loop=$3264
+    .label EndLoop=$326b
+    .label Finish=$3273
+  }
+  .label DespawnEnemy=$32a4 {
+  }
+  .label Update=$32e2 {
+    .label Despawn=$3336
+    .label MonkeyHit=$336a
+    .label PositionID=$14f2
+    .label EndLoop=$3356
+    .label EnemyLoop=$32ef
+    .label KeyActive=$32ed
+    .label TurnSnapper=$333c
+    .label Finish=$3370
+    .label MoveRight=$3344
+  }
+  .label CheckCooldown=$32ce {
+    .label SnapperOk=$32d9
+    .label Finish=$32e1
+  }
+  .label TickCounter=$31eb
+  .label SpawnCooldown=$31fc
+  .label MaxEnemies=$8
+  .label Positions=$31e3
+  .label MoveRightThreshold=$d
+  .label Reset=$3232 {
+    .label Finish=$3261
+    .label ClearLoop=$324e
+  }
+  .label CurrentEnemies=$31fb
+  .label Spawn=$3274 {
+    .label Okay=$328a
+    .label Finish=$32a3
+  }
+  .label AddForObjectID=$19
+}
+.label TEMP3=$14f3
+.label ENEMY_SPRITEDATA=$3371 {
+  .label HitMonkeyCell=$339b
+  .label Rows=$3371
+  .label DeleteUponLanding=$3386
+}
+.label JOY_RIGHT=$8
+.label TEMP4=$14f4
+.label TEMP5=$14f5
+.label JOY_FIRE_NOW=$1508
+.label VECTOR2=$d2
+.label TEMP6=$14f6
+.label VECTOR1=$d0
+.label TEMP7=$14f7
+.label JOY_LEFT_LAST=$1500
+.label CAGE=$3549 {
+  .label Draw=$3592 {
+    .label Loop=$359a
+    .label NoMonkey=$35eb
+    .label TurnOn=$35c6
+    .label FinishSection=$35db
+    .label EndLoop=$35e6
+    .label SectionID=$14fa
+    .label TurnOff=$35ae
+  }
+  .label FlashCounter=$3554
+  .label LockCage=$355a {
+  }
+  .label PutBackPiece=$35ec {
+  }
+  .label FacePosition=$3551
+  .label HappyFace=$354f
+  .label NumberOfSections=$4
+  .label FinalPieceID=$354a
+  .label SectionsUnlocked=$3552
+  .label SectionUnlocked=$3556
+  .label Update=$35fb {
+    .label TurnOn=$3614
+    .label Switch=$3603
+    .label CheckMonkeyPosition=$3617
+  }
+  .label Smile=$3623 {
+  }
+  .label SadCharacter=$12
+  .label MouthCharacterID=$a7
+  .label SmileCharacter=$fa
+  .label UnlockCage=$357a {
+  }
+  .label ObjectIDs=$354b
+  .label ShowUnlockedSections=$3553
+  .label Sad=$361e {
+  }
+  .label MonkeyLockID=$3549
+  .label Reset=$3584 {
+  }
+  .label SadFace=$3550
+  .label TurnOffMonkey=$35fa {
+  }
+}
+.label TEMP8=$14f8
+.label TEMP9=$14f9
+.label JOY_LEFT_NOW=$1505
+.label TITLE_MAP_TILES=$2b98
+.label MAP_TILES=$27de
+.label JOY_RIGHT_NOW=$1504
+.label MONKEY=$2e00 {
+  .label Delete=$2ef3 {
+  }
+  .label AtCage=$2e09
+  .label FireCooldown=$2e04
+  .label BlankSprite=$63
+  .label Draw=$2e4f {
+    .label DrawCharacters=$2e9a
+    .label Okay=$2e5b
+    .label Complete=$2ea2
+    .label CheckWhetherToSetFallFlag=$2e68
+    .label DontAwardPoint=$2e88
+    .label CheckWhetherToDrop=$2e78
+  }
+  .label GetPineappleSpot=$15
+  .label CellID=$2e00
+  .label MaxColumn=$5
+  .label Control=$2efc {
+    .label Start=$2f04
+    .label CheckDown=$2f66
+    .label Complete=$2f75
+    .label HandleRight=$2f7b {
+      .label NoHurdle=$2fae
+    }
+    .label CanJump=$14f4
+    .label HandleDown=$307d {
+      .label MoveDown=$3094
+    }
+    .label LeftUp=$2f52
+    .label CheckFire=$2f14
+    .label CheckUp=$2f57
+    .label CheckFireUp=$2f29
+    .label HandleFire=$3037 {
+      .label PrevCell=$14f8
+      .label CheckEnemyToRight=$306f
+      .label Finish=$307a
+      .label NoPineapple=$3056
+    }
+    .label HandleFire2=$2fca {
+    }
+    .label WillFall=$14f3
+    .label UpUp=$2f61
+    .label NothingPressed=$2f75
+    .label DownUp=$2f70
+    .label CheckRight=$2f39
+    .label CurrentRow=$14f1
+    .label CheckWhetherEnemies=$30ca {
+      .label DontKill=$30e1
+      .label HitEnemy=$30d7
+      .label EndLoop=$30e9
+      .label EnemyLoop=$30cc
+      .label Finish=$30f1
+    }
+    .label HandleLeft=$2fcd {
+      .label GoForKey=$2ff8
+      .label MoveLeft=$3015
+      .label NotInKeyJumpSpot=$2fe9
+    }
+    .label Complete2=$3034
+    .label EnemyKillPosition=$14f5
+    .label FireButtonUpThisFrame=$14f6
+    .label ExitViaFire=$3033
+    .label CurrentColumn=$14f2
+    .label HandleUp=$30a8 {
+      .label Climb=$30bb
+    }
+    .label RightUp=$2f43
+    .label CheckLeft=$2f48
+  }
+  .label IsFalling=$2e01
+  .label Unlocking=$2e07
+  .label FallGracefully=$2e0a
+  .label DeathTime=$4
+  .label UpTreeSpot=$16
+  .label ResetFlags=$2ebf {
+    .label temp=$14f1
+    .label JOYSTICKSELECT1=$2
+    .label GetJoystick=$2ed0
+    .label gatherJoystick2=$2ee7
+    .label gatherJoystick1=$2ed9
+  }
+  .label JumpedOverEnemy=$2e0e
+  .label Invisible=$2e0d
+  .label KeyJumpSpot=$e
+  .label Reset=$2e14 {
+  }
+  .label Kill=$30f2 {
+  }
+  .label GetStatus=$2ea3 {
+  }
+  .label MovedThisFrame=$2e02
+  .label InDitch=$2e08
+  .label ClimbDownLevelSpot=$11
+  .label GotKey=$2e05
+  .label HitByEnemy=$2e0c
+  .label DisableControl=$2e0b
+  .label Initialise=$2e10 {
+    .label Finish=$2e10
+  }
+  .label GoingForKey=$2e03
+  .label DropTime=$2e0f
+  .label JumpForKeyFrame=$13
+  .label MissedKey=$2e06
+  .label ClimbUpLevelSpot=$b
+  .label SingleVineLevelTwo=$16
+}
+.label TEMP10=$14fa
+.label TITLELOADER=$1689 {
+  .label Column=$168d
+  .label DrawMap=$168f {
+    .label Screen=$16ea
+    .label TileColumnLoop=$16b7
+    .label TileLookup=$16e4
+    .label NextRow=$1744
+    .label TileRowLoop=$16b2
+    .label Tile=$16c1
+    .label NextColumn=$170b
+    .label Colour=$16f4
+  }
+  .label Row=$168e
+  .label TileScreenLocations=$1689
+}
+.label LIVES=$37fd {
+  .label StartColourPosition=$8e5
+  .label Draw=$3810 {
+    .label Loop=$3819
+    .label LivesLeft=$14f1
+    .label DrawHeart=$3822
+    .label DrawBlank=$3832
+    .label EndLoop=$3837
+  }
+  .label Value=$37fd
+  .label BlankCharacter=$0
+  .label Reset=$37ff {
+  }
+  .label LoseLife=$3809 {
+  }
+  .label HeartCharacter=$4f
+  .label StartCharacterPosition=$ce5
+}
+.label CHAR_COLORS=$2700
+.label MAP=$2a16
+.label KEY=$33b0 {
+  .label ForceKey=$33c4
+  .label InDitch2=$34a2
+  .label LoseLife=$344e {
+  }
+  .label Update=$34dc {
+    .label NoKey=$3524
+    .label MoveKey=$3515
+    .label NotGoingForKey=$34f2
+  }
+  .label WillCatch=$33bc
+  .label ObjectIDs=$33b0
+  .label Unlocking=$3481 {
+    .label Wait=$34a1
+  }
+  .label FallGracefullyFrame=$d
+  .label FallGracefully=$34a5 {
+    .label Wait=$34c6
+  }
+  .label Unlocking2=$34c7 {
+  }
+  .label Reset=$33c9 {
+  }
+  .label CaughtKeyFrame=$18
+  .label MissedKeyFrame=$c
+  .label GameOver=$3478 {
+  }
+  .label InDitch=$3466 {
+    .label Wait=$3471
+  }
+  .label Position=$33bb
+  .label DrawKey=$3525 {
+    .label NoKey=$3548
+    .label SkipCheck=$3539
+  }
+  .label InDitchFrame=$12
+  .label GotKey=$3429 {
+    .label Complete=$3449
+  }
+  .label HitByEnemy=$34ca {
+    .label Wait=$34db
+  }
+  .label Initialise=$33c5 {
+  }
+  .label OpenLockFrame=$18
+  .label TicksWhileUnlocking=$4
+  .label GoingForKey=$33d2 {
+    .label CaughtKey=$33e2
+    .label Complete=$3410
+    .label MissedKey=$3403
+    .label Wait=$3417
+  }
+  .label Active=$33c3
+  .label GoingForKey2=$3475
+  .label MissedKey2=$347e
+  .label GotKey2=$347b
+  .label Positions=$33b4
+  .label TicksWhileFalling=$2
+  .label DrawKey2=$344a
+  .label MissedKey=$3418 {
+  }
+}
+.label JOY_FIRE=$40
+.label SCORE=$36f4 {
+  .label Add=$3756 {
+    .label BetterOrEqualHigh=$377d
+    .label SetNewBest=$379a
+    .label CheckMiddle=$3782
+    .label BetterOrEqualMiddle=$378d
+    .label CheckLow=$3792
+    .label NoNewBest=$37af
+  }
+  .label DrawBest=$37b6 {
+    .label ScoreLoop=$37ba
+    .label PlotDigit=$37d1 {
+    }
+  }
+  .label HitEnemy=$3720 {
+  }
+  .label HitScores=$36f8
+  .label CheckScoreToAdd=$3748 {
+    .label Finish=$3755
+  }
+  .label Draw=$37d9 {
+    .label ScoreLoop=$37dd
+    .label PlotDigit=$37f4 {
+    }
+  }
+  .label Amount=$14f1
+  .label UnlockSection=$3734 {
+  }
+  .label ScoreToAdd=$3702
+  .label JumpEnemy=$372a {
+  }
+  .label UnlockCage=$373e {
+  }
+  .label UnlockScore=$36f6
+  .label CharacterSetStart=$d4
+  .label JumpScore=$36f7
+  .label Value=$36fc
+  .label AddToScore=$3715 {
+  }
+  .label KeyScore=$36f4
+  .label Best=$36ff
+  .label Reset=$3703 {
+  }
+}
+.label ONE=$1
+.label JOY_UP_NOW=$1507
+.label TITLE_CHAR_SET=$1800
+.label JOY_UP=$1
+.label REGISTERS=$15a6 {
+  .label JOY_PORT_2=$9120
+  .label JOY_PORT_1=$ff08
+}
+.label JOY_LEFT=$4
+.label CHAR_DRAWING=$383d {
+  .label ClearAll=$3854 {
+    .label Loop=$3856
+    .label Finish=$386a
+  }
+  .label TotalObjects=$39
+  .label ObjectID=$14f1
+  .label GetColour=$386b {
+  }
+  .label StartAddress=$d0
+  .label ColourObject=$3876 {
+    .label Hide=$388a
+    .label Loop=$38aa
+    .label ColourChar=$38be
+    .label ColourRequest=$14f4
+    .label Finish=$38ce
+    .label ColourObject=$3892
+  }
+  .label Colour=$383e
+  .label BytesToRead=$14f2
+  .label COLOR_ADDRESS=$d2
+  .label CalculateAddresses=$3840 {
+  }
+  .label Column=$14f4
+  .label SCREEN_RAM=$c00
+  .label Row=$14f3
+  .label CurrentColour=$383f
+  .label ByteID=$14f5
+  .label LoopID=$383d
+}
+.label SOUND=$38d5 {
+  .label PlayTick=$396a {
+  }
+  .label Channel=$38e3
+  .label Channel1_MSB=$ff10
+  .label Channel1_LSB=$ff0e
+  .label PlayGameOver=$390d {
+  }
+  .label Update=$3993 {
+    .label Loop=$3995
+    .label StopChannel=$39a2
+    .label Address=$39ab
+    .label EndLoop=$39ab
+    .label Finish=$39b3
+  }
+  .label Channels=$38db
+  .label ChannelOn=$38d5
+  .label ScoreSound=$394a {
+  }
+  .label ChannelOff=$38d7
+  .label StopAll=$398a {
+  }
+  .label Channel2_LSB=$ff0f
+  .label Countdown=$38d9
+  .label Setup=$38e4 {
+  }
+  .label MoveMonkey=$38ed {
+  }
+  .label Channel2_MSB=$ff12
+  .label CONTROL=$ff11
+  .label DeathSound=$392b {
+  }
+}
+.label JOY_UP_LAST=$1502
+.label JOY_ZP1=$14fd
+.label JOY_ZP2=$14fe
+.label TITLE_CHAR_COLORS=$2b06
+.label ALL_ON=$ff
+.label JOY_DOWN_NOW=$1506
+.label TITLE_MAP=$2cc4
+.label VIC=$1509 {
+  .label MULTICOLOUR_1=$ff16
+  .label RASTER_LINE=$ff1d
+  .label BACKGROUND_COLOUR=$ff15
+  .label MULTICOLOUR_2=$ff17
+  .label ScreenRowMSB=$1522
+  .label ROWS_ETC=$ff06
+  .label BORDER_COLOUR=$ff19
+  .label ScreenRowLSB=$1509
+  .label RAM_CHAR_ADDRESS=$ff13
+  .label SCREEN_MODE=$ff07
+  .label SCREEN_RAM=$c00
+  .label RAM_CHAR_MODE=$ff12
+  .label BORDER_BACKGROUND=$900f
+  .label COLOR_RAM=$800
+  .label Setup=$156d {
+  }
+  .label ColorRowMSB=$1554
+  .label CHAR_RAM=$9005
+  .label ColorRowLSB=$153b
+}
+.label ZP_COUNTER=$14fb
+.label MONKEYDATA=$3105 {
+  .label SwingOverEnemyID=$3183
+  .label CanMoveRight=$319b
+  .label CheckWhenMovingLeft=$31cb
+  .label Column=$311d
+  .label CheckWhenMovingRight=$31b3
+  .label CanJump=$316b
+  .label ReplacementObjectID=$3135
+  .label Row=$3105
+  .label OnVine=$3153
+  .label WillFall=$313b
+}
+.label ZP_ODD_EVEN=$14fc
+.label JOY_RIGHT_LAST=$14ff
+.label PINEAPPLE=$3628 {
+  .label Delete=$36e7 {
+  }
+  .label Draw=$36da {
+  }
+  .label Position=$3628
+  .label EnemyKillPosition=$3633
+  .label Update=$3657 {
+    .label EndFall=$3689
+    .label StillFalling=$367a
+    .label Finish=$368e
+    .label ReachedNextPosition=$3667
+  }
+  .label NewPosition=$14f1
+  .label FallCountdown=$362d
+  .label IsFalling=$3634
+  .label Column=$b
+  .label FirstCharacter=$69
+  .label Positions=$3629
+  .label BlankCharacter=$0
+  .label Reset=$3635 {
+  }
+  .label StartFall=$3641 {
+    .label Finish=$3656
+  }
+  .label EnemyHitPositions=$362f
+  .label GameTickAddOnHit=$f
+  .label CheckPineappleHitEnemy=$368f {
+    .label HitEnemy=$36a8
+    .label EnemyID=$14f9
+    .label EndLoop=$36d1
+    .label EnemyLoop=$369a
+    .label Finish=$36d9
+  }
+}

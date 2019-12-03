@@ -1,0 +1,68 @@
+ 
+*** VICE Version 3.3, rev 37130M ***
+ 
+Welcome to x64, the free portable PLUS4 Emulator.
+ 
+Current VICE team members:
+Marco van den Heuvel, Fabrizio Gennari, Groepaz, Errol Smith, Olaf Seibert, 
+Marcus Sutton, Kajtar Zsolt, AreaScout, Bas Wassink, Michael C. Martin, 
+David Hogan.
+ 
+This is free software with ABSOLUTELY NO WARRANTY.
+See the "About VICE" command for more info.
+ 
+Loading system file `C:\C64\Tools\Vice\PLUS4\kernal'.
+Loading system file `C:\C64\Tools\Vice\PLUS4\basic'.
+Loading system file `C:\C64\Tools\Vice\PRINTER\mps803'.
+Palette: Loading palette `C:\C64\Tools\Vice\PRINTER\mps803.vpl'.
+Loading system file `C:\C64\Tools\Vice\PRINTER\nl10-cbm'.
+Palette: Loading palette `C:\C64\Tools\Vice\PRINTER\nl10.vpl'.
+NL10: Printer driver initialized.
+Palette: Loading palette `C:\C64\Tools\Vice\PRINTER\1520.vpl'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos1540'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos1541'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\d1541II'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos1570'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos1571'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos1581'.
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos1551'.
+Drive: Finished loading ROM images.
+Sound: Available sound devices: dx wmm dummy fs dump wav voc iff aiff flac ogg soundmovie
+using GTK3 backend: OpenGL
+Creating GtkGlArea widget.
+Warning - GTKGL: OpenGL version 3.2 not supported in this context
+GdkGlkContext is in legacy (OpenGL 1.1) mode.
+Palette: Loading palette `C:\C64\Tools\Vice\PLUS4\colodore_ted.vpl'.
+Keyboard: Loading keymap `C:\C64\Tools\Vice\PLUS4\gtk3_sym.vkm'.
+Keyboard: Warning - gtk3_sym.vkm:144: !RSHIFT defined but key does not use SHIFT flag
+Keyboard: Warning - gtk3_sym.vkm:145: !RSHIFT defined but key does not use SHIFT flag
+Keyboard: Warning - gtk3_sym.vkm:233: !RSHIFT defined but key does not use SHIFT flag
+Keyboard: Warning - gtk3_sym.vkm:235: !RSHIFT defined but key does not use SHIFT flag
+Keyboard: Warning - gtk3_sym.vkm: !LCBM !VCBM !LCTRL !VCTRL !SHIFTLnot defined.
+AUTOSTART: Autodetecting image type of `bin/plus4.prg'.
+Filesystem Image Probe: Error - Import GCR: Unknown GCR image version 52.
+Filesystem Image: Unknown disk image `bin/plus4.prg'.
+Tape: Error - Cannot open file `bin/plus4.prg'
+AUTOSTART: Loading PRG file `bin/plus4.prg' with direct RAM injection.
+AUTOSTART: Resetting the machine to autostart '*'
+Sound: Opened device `dx', speed 44100Hz, fragment size fms, buffer size 101ms
+reSID: MOS6581, filter on, sampling rate 44100Hz - resampling, pass to 19845Hz
+AUTOSTART: Turning Warp mode on
+AUTOSTART: `bin/plus4.prg' recognized as program/p00 file.
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+RS232DEV: rs232dev_set_status: rts:off dtr:off
+RS232DEV: rs232dev_set_bps: bps: 10
+Drive 8: RESET.
+AUTOSTART: Injecting program data at $1000 (size $29bc)
+AUTOSTART: Ready
+AUTOSTART: Turning Warp mode off
+AUTOSTART: Starting program.
+Skip line 312 312
+AUTOSTART: Done.
+Writing configuration file `C:\Users\Nick\AppData\Roaming\vice\vice.ini'.
+
+Exiting...
+Sound: Closing device `dx'
