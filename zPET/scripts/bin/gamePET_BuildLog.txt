@@ -1,0 +1,17 @@
+parsing
+flex pass 1
+flex pass 2
+Output pass
+Writing prg file: C:\C64\DKJ\zPET\scripts\bin\gamePET.prg
+
+Memory Map
+----------
+Default-segment:
+  *$00d0-$00d5 Temp vars zero page
+  $0400-$042d BASIC Stub
+  $042e-$0585 Entry
+  $0600-$1ca9 SCREEN_DATA
+  $1d00-$20a2 Code1
+
+Writing Vice symbol file: C:\C64\DKJ\zPET\scripts\bin\gamePET.vs
+Writing Symbol file: gamePET.sym

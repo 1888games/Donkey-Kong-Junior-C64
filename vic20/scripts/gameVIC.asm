@@ -116,6 +116,7 @@ NewGame:{
 		jsr PINEAPPLE.Reset
 		jsr CAGE.Reset
 		jsr CAGE.LockCage
+		 jsr ENEMIES.Reset
 
 
 

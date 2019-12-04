@@ -1,0 +1,91 @@
+ 
+*** VICE Version 3.3, rev 37130M ***
+ 
+Welcome to x64, the free portable PET Emulator.
+ 
+Current VICE team members:
+Marco van den Heuvel, Fabrizio Gennari, Groepaz, Errol Smith, Olaf Seibert, 
+Marcus Sutton, Kajtar Zsolt, AreaScout, Bas Wassink, Michael C. Martin, 
+David Hogan.
+ 
+This is free software with ABSOLUTELY NO WARRANTY.
+See the "About VICE" command for more info.
+ 
+Loading system file `C:\C64\Tools\Vice\PET\chargen'.
+Loading system file `C:\C64\Tools\Vice\PET\basic4'.
+Loading system file `C:\C64\Tools\Vice\PET\kernal4'.
+PETMEM: Identified Kernal 4 ROM by checksum.
+Loading system file `C:\C64\Tools\Vice\PET\edit4g40'.
+PETMEM: Identified 40 columns editor by checksum.
+PETMEM: ROM screen width is 40.
+PET: Initializing IEEE488 bus...
+Loading system file `C:\C64\Tools\Vice\PRINTER\mps803'.
+Palette: Loading palette `C:\C64\Tools\Vice\PRINTER\mps803.vpl'.
+Loading system file `C:\C64\Tools\Vice\PRINTER\nl10-cbm'.
+Palette: Loading palette `C:\C64\Tools\Vice\PRINTER\nl10.vpl'.
+NL10: Printer driver initialized.
+Palette: Loading palette `C:\C64\Tools\Vice\PRINTER\1520.vpl'.
+using GTK3 backend: OpenGL
+Creating GtkGlArea widget.
+Warning - GTKGL: OpenGL version 3.2 not supported in this context
+GdkGlkContext is in legacy (OpenGL 1.1) mode.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos2031'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos2040'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos3040'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos4040'.
+Loading system file `C:\C64\Tools\Vice\DRIVES\dos1001'.
+Drive: Finished loading ROM images.
+Sound: Available sound devices: dx wmm dummy fs dump wav voc iff aiff flac ogg soundmovie
+Keyboard: Loading keymap `C:\C64\Tools\Vice\PET\gtk3_grus_sym.vkm'.
+Keyboard: Warning - gtk3_grus_sym.vkm: !LCBM !VCBM !LCTRL !VCTRL !SHIFTLnot defined.
+AUTOSTART: Autodetecting image type of `bin/gamePET.prg'.
+Filesystem Image Probe: Error - Import GCR: Unknown GCR image version 49.
+Filesystem Image: Unknown disk image `bin/gamePET.prg'.
+Tape: Error - Cannot open file `bin/gamePET.prg'
+AUTOSTART: Loading PRG file `bin/gamePET.prg' with direct RAM injection.
+AUTOSTART: Resetting the machine to autostart '*'
+AUTOSTART: `bin/gamePET.prg' recognized as program/p00 file.
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+Drive 8: RESET.
+RS232DEV: rs232dev_set_status: rts:off dtr:off
+RS232DEV: rs232dev_set_bps: bps: 10
+Drive 8: RESET.
+Sound: Opened device `dx', speed 44100Hz, fragment size fms, buffer size 101ms
+reSID: MOS6581, filter on, sampling rate 44100Hz - resampling, pass to 19845Hz
+PET: cycles per frame set to 20042, refresh to 49.895Hz
+PET: cycles per frame set to 20050, refresh to 49.875Hz
+AUTOSTART: Injecting program data at $0400 (size $1ca3)
+AUTOSTART: Ready
+AUTOSTART: Starting program.
+AUTOSTART: Done.
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Sound buffer overflow (cycle based)
+Sound: Warning - Buffer overflow warning repeated 25 times, will now be ignored
+Writing configuration file `C:\Users\Nick\AppData\Roaming\vice\vice.ini'.
+
+Exiting...
+Sound: Closing device `dx'

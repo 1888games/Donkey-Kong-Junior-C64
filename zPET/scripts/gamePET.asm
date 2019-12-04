@@ -1,17 +1,16 @@
 
-
 MAIN: {
 
 #import "lookups/zeropage.asm"
 
-* = $1200 "Code1"
+* = $1d00 "Code1"
 #import "setup/upstart.asm"
 #import "setup/loadModules.asm" 
 
 GameCounter:		.byte 32, 32, 32
 SpeedIncreaseCounter: .byte 48, 48
 FrameSwitch: .byte 0
-TitleCooldown: .byte 30, 30
+TitleCooldown: .byte 30, 255
 
 BASICStub(0,"Entry")
 
@@ -21,7 +20,7 @@ Entry:
 	
 		//exomizer sfx sys -t 64 -x "inc $d020" -o yakf.exo yakf.prg
 
-		sei 
+		//sei 
 
 		jsr VIC.Setup
 		jsr SOUND.Setup
@@ -40,17 +39,7 @@ TitleScreen: {
 
 		jsr SOUND.StopAll
 		
-		lda VIC.RAM_CHAR_ADDRESS
-		and #%00000011
-		ora #%00011000		// character ram page 8   $2000/8192
-		sta VIC.RAM_CHAR_ADDRESS
-
-		lda #%01100111
-		sta VIC.BACKGROUND_COLOUR   // background colour  light blue
-
-		lda #%10000000
-		sta VIC.BORDER_COLOUR  // border colour
-
+		
 		DrawMap:
 
 		jsr TITLELOADER.DrawMap
@@ -74,35 +63,13 @@ TitleLoop: {
 		dec TitleCooldown
 		jmp TitleLoop
 
-		.label temp = TEMP1
-		.label JOYSTICKSELECT1 = %00000010 
-
 		GetJoystick:
 
-		jsr gatherJoystick1
-		sta temp
-		jmp gatherJoystick2
 
-		gatherJoystick1:
-		lda #$ff
-		sta $fd30
-		lda #JOYSTICKSELECT1
-		sta $ff08
-		lda $ff08
-	
-		rts
+		jsr $FFE4
+		bne Loop
 
-		gatherJoystick2:
-
-			jsr gatherJoystick1
-			cmp temp
-			bne GetJoystick
-
-		and #JOY_FIRE
-		bne GetJoystick
-
-		lda #2
-		sta TitleCooldown
+		jmp GetJoystick
 
 		Loop:
 
@@ -114,38 +81,29 @@ TitleLoop: {
 			jmp Loop
 
 
+
+
 }
 
 
 
 NewGame:{
-
-		lda VIC.RAM_CHAR_ADDRESS
-		and #%00000011
-		ora #%00100000		// character ram page 8   $2000/8192
-		sta VIC.RAM_CHAR_ADDRESS
-
-		lda #%01010011
-		sta VIC.BACKGROUND_COLOUR   // background colour  light blue
-
-		lda #%10000000
-		sta VIC.BORDER_COLOUR  // border colour
-
+	
 		jsr MAPLOADER.DrawMap
 
 		lda GameCounter + 2
 		sta GameCounter + 1
 		sta GameCounter
 
-		 jsr CHAR_DRAWING.ClearAll
-		 jsr MONKEY.Reset
-		 jsr SCORE.Reset
-		 jsr KEY.Reset
-		 jsr LIVES.Reset
-		 jsr PINEAPPLE.Reset
-		 jsr CAGE.Reset
-		 jsr CAGE.LockCage
-		 jsr ENEMIES.Reset
+		jsr CHAR_DRAWING.ClearAll
+		jsr MONKEY.Reset
+		jsr SCORE.Reset
+		jsr KEY.Reset
+		jsr LIVES.Reset
+		jsr PINEAPPLE.Reset
+	 	jsr CAGE.Reset
+		jsr CAGE.LockCage
+		jsr ENEMIES.Reset
 
 		jmp MainLoop
 
@@ -162,13 +120,40 @@ TestLoop: {
 
 WaitForRasterLine: {
 
+
+	ldx #ZERO
+	ldy #ZERO
+
+	xLoop:
+
+		inx
+		cpx #240
+		beq EndxLoop
+
+		jmp xLoop
+
+		EndxLoop:
+
+		ldx #ZERO
+		iny	
+		cpy #9
+
+		beq Finish
+		jmp xLoop
+
+	Finish:
+
+		rts
+
+
+
 	.label RasterTarget = TEMP1
-	stx RasterTarget
 
 	Loop: 
 
 		lda VIC.RASTER_LINE
-		cmp RasterTarget
+		eor VIC.RASTER_MASK
+		and VIC.RASTER_MASK
 		bne Loop
 
 		rts
@@ -237,6 +222,12 @@ CheckGameSpeed:{
 }
 
 
+TestByte: .byte 0
+
+
+
+
+
 
 GameTick: {
 
@@ -297,30 +288,53 @@ GameTick: {
 }
 
 
+
 MainLoop: 
 
 		//.break
+
+
 		
 		ldx #1
 		jsr WaitForRasterLine
 		jmp MonkeyIRQ
+
+
+PreviousCellID: .byte 0
 
  		
 MonkeyIRQ: {
 
 
 
-	
-		jsr MONKEY.Delete
 		jsr MONKEY.Control
-		jsr MONKEY.Draw
+		jsr MONKEY.Update
+
+		lda MONKEY.CellID
+		cmp PreviousCellID
+		
+		bne MoveMonkey
+
+		jmp NoMove
+
+		MoveMonkey:
+
+			ldx PreviousCellID
+			jsr MONKEY.Delete
+			jsr MONKEY.Draw
+
+			lda MONKEY.CellID
+
+
+		NoMove:
+
+		lda MONKEY.CellID
+		sta PreviousCellID
+		
 		jsr SOUND.Update
 		jsr GameTick
 		jsr CheckWhetherToUpdateScore
 		jsr PINEAPPLE.Update
-
-		ldx #150
-		jsr WaitForRasterLine
 
 		jmp MainLoop
 
@@ -331,8 +345,9 @@ MonkeyIRQ: {
 
 Random: {
 
-	lda $ff1e
+	jsr RANDOM_NUMBER.Get
 
+	
 
 	rts
 
@@ -340,7 +355,3 @@ Random: {
  #import "setup/assets.asm"
 
 }
-
-
-
-
