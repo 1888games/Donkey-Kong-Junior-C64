@@ -59,32 +59,6 @@ AUTOSTART: Injecting program data at $0400 (size $1ca3)
 AUTOSTART: Ready
 AUTOSTART: Starting program.
 AUTOSTART: Done.
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Sound buffer overflow (cycle based)
-Sound: Warning - Buffer overflow warning repeated 25 times, will now be ignored
 Writing configuration file `C:\Users\Nick\AppData\Roaming\vice\vice.ini'.
 
 Exiting...

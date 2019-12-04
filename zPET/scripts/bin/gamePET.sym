@@ -103,9 +103,9 @@
   }
 }
 .label MAIN=$2000 {
-  .label FrameSwitch=$1ca7
+  .label FrameSwitch=$1ca4
   .label Loop=$437
-  .label GameCounter=$1ca2
+  .label GameCounter=$1c9f
   .label MaxSpeed=$d
   .label CheckWhetherToUpdateScore=$4ba {
     .label NoScoreAdd=$4c4
@@ -117,7 +117,7 @@
     .label EndxLoop=$4a5
     .label Finish=$4af
   }
-  .label TitleCooldown=$1ca8
+  .label TitleCooldown=$1ca5
   .label GameTick=$4fa {
     .label PerformTick=$508
     .label FlipOn=$515
@@ -144,7 +144,7 @@
     .label NoMove=$56d
     .label MoveMonkey=$561
   }
-  .label SpeedIncreaseCounter=$1ca5
+  .label SpeedIncreaseCounter=$1ca2
   .label NewGame=$46c {
   }
   .label TitleLoop=$449 {
@@ -158,65 +158,65 @@
 .label TEMP1=$1ff3
 .label JOY_DOWN_LAST=$2003
 .label TEMP2=$1ff4
-.label ENEMIES=$1527 {
-  .label FlaggedForDeletion=$1537
-  .label TypeStartPosition=$1542
+.label ENEMIES=$1524 {
+  .label FlaggedForDeletion=$1534
+  .label TypeStartPosition=$153f
   .label SnapperTurnFrame=$5
-  .label DrawEnemy=$1602 {
-    .label Finish=$1611
+  .label DrawEnemy=$15ff {
+    .label Finish=$160e
   }
   .label SnapperFallFrame=$14
-  .label CurrentEnemy=$1544
+  .label CurrentEnemy=$1541
   .label SpawnCooldownTime=$4
-  .label RemoveClose=$1545 {
+  .label RemoveClose=$1542 {
     .label EnemyID=$1ffa
-    .label EndLoop=$156d
-    .label Finish=$1575
-    .label ClearLoop=$1549
+    .label EndLoop=$156a
+    .label Finish=$1572
+    .label ClearLoop=$1546
   }
-  .label GetFreeEnemyIndex=$15a6 {
-    .label Loop=$15a8
-    .label EndLoop=$15af
-    .label Finish=$15b7
+  .label GetFreeEnemyIndex=$15a3 {
+    .label Loop=$15a5
+    .label EndLoop=$15ac
+    .label Finish=$15b4
   }
-  .label DespawnEnemy=$15e8 {
+  .label DespawnEnemy=$15e5 {
   }
-  .label Update=$1626 {
-    .label Despawn=$167a
-    .label MonkeyHit=$16ae
+  .label Update=$1623 {
+    .label Despawn=$1677
+    .label MonkeyHit=$16ab
     .label PositionID=$1ff4
-    .label EndLoop=$169a
-    .label EnemyLoop=$1633
-    .label KeyActive=$1631
-    .label TurnSnapper=$1680
-    .label Finish=$16b4
-    .label MoveRight=$1688
+    .label EndLoop=$1697
+    .label EnemyLoop=$1630
+    .label KeyActive=$162e
+    .label TurnSnapper=$167d
+    .label Finish=$16b1
+    .label MoveRight=$1685
   }
-  .label CheckCooldown=$1612 {
-    .label SnapperOk=$161d
-    .label Finish=$1625
+  .label CheckCooldown=$160f {
+    .label SnapperOk=$161a
+    .label Finish=$1622
   }
-  .label TickCounter=$152f
-  .label SpawnCooldown=$1540
+  .label TickCounter=$152c
+  .label SpawnCooldown=$153d
   .label MaxEnemies=$8
-  .label Positions=$1527
+  .label Positions=$1524
   .label MoveRightThreshold=$d
-  .label Reset=$1576 {
-    .label Finish=$15a5
-    .label ClearLoop=$1592
+  .label Reset=$1573 {
+    .label Finish=$15a2
+    .label ClearLoop=$158f
   }
-  .label CurrentEnemies=$153f
-  .label Spawn=$15b8 {
-    .label Okay=$15ce
-    .label Finish=$15e7
+  .label CurrentEnemies=$153c
+  .label Spawn=$15b5 {
+    .label Okay=$15cb
+    .label Finish=$15e4
   }
   .label AddForObjectID=$19
 }
 .label TEMP3=$1ff5
-.label ENEMY_SPRITEDATA=$16b5 {
-  .label HitMonkeyCell=$16df
-  .label Rows=$16b5
-  .label DeleteUponLanding=$16ca
+.label ENEMY_SPRITEDATA=$16b2 {
+  .label HitMonkeyCell=$16dc
+  .label Rows=$16b2
+  .label DeleteUponLanding=$16c7
 }
 .label JOY_RIGHT=$8
 .label TEMP4=$1ff6
@@ -227,48 +227,48 @@
 .label VECTOR1=$d0
 .label TEMP7=$1ff9
 .label JOY_LEFT_LAST=$2002
-.label CAGE=$188d {
-  .label Draw=$18d6 {
-    .label Loop=$18de
-    .label NoMonkey=$192f
-    .label TurnOn=$190a
-    .label FinishSection=$191f
-    .label EndLoop=$192a
+.label CAGE=$188a {
+  .label Draw=$18d3 {
+    .label Loop=$18db
+    .label NoMonkey=$192c
+    .label TurnOn=$1907
+    .label FinishSection=$191c
+    .label EndLoop=$1927
     .label SectionID=$1ffc
-    .label TurnOff=$18f2
+    .label TurnOff=$18ef
   }
-  .label FlashCounter=$1898
-  .label LockCage=$189e {
+  .label FlashCounter=$1895
+  .label LockCage=$189b {
   }
-  .label PutBackPiece=$1930 {
+  .label PutBackPiece=$192d {
   }
-  .label FacePosition=$1895
-  .label HappyFace=$1893
+  .label FacePosition=$1892
+  .label HappyFace=$1890
   .label NumberOfSections=$4
-  .label FinalPieceID=$188e
-  .label SectionsUnlocked=$1896
-  .label SectionUnlocked=$189a
-  .label Update=$1939 {
-    .label TurnOn=$1952
-    .label Switch=$1941
-    .label CheckMonkeyPosition=$1955
+  .label FinalPieceID=$188b
+  .label SectionsUnlocked=$1893
+  .label SectionUnlocked=$1897
+  .label Update=$1936 {
+    .label TurnOn=$194f
+    .label Switch=$193e
+    .label CheckMonkeyPosition=$1952
   }
-  .label Smile=$1961 {
+  .label Smile=$195e {
   }
   .label SadCharacter=$12
   .label MouthCharacterID=$a7
   .label SmileCharacter=$fa
-  .label UnlockCage=$18be {
+  .label UnlockCage=$18bb {
   }
-  .label ObjectIDs=$188f
-  .label ShowUnlockedSections=$1897
-  .label Sad=$195c {
+  .label ObjectIDs=$188c
+  .label ShowUnlockedSections=$1894
+  .label Sad=$1959 {
   }
-  .label MonkeyLockID=$188d
-  .label Reset=$18c8 {
+  .label MonkeyLockID=$188a
+  .label Reset=$18c5 {
   }
-  .label SadFace=$1894
-  .label TurnOffMonkey=$1938 {
+  .label SadFace=$1891
+  .label TurnOffMonkey=$1935 {
   }
 }
 .label TEMP8=$1ffa
@@ -276,7 +276,7 @@
 .label JOY_LEFT_NOW=$2007
 .label JOY_RIGHT_NOW=$2006
 .label MONKEY=$1024 {
-  .label Delete=$1210 {
+  .label Delete=$120d {
   }
   .label AtCage=$102d
   .label FireCooldown=$1028
@@ -295,60 +295,60 @@
     .label NotDropping=$1098
     .label DontAwardPoint=$1086
   }
-  .label Control=$1216 {
-    .label Start=$121e
-    .label CheckDown=$12ac
-    .label Complete=$12bb
-    .label HandleRight=$12c1 {
-      .label NoHurdle=$12f4
+  .label Control=$1213 {
+    .label Start=$121b
+    .label CheckDown=$12a9
+    .label Complete=$12b8
+    .label HandleRight=$12be {
+      .label NoHurdle=$12f1
     }
     .label CanJump=$1ff6
-    .label HandleDown=$13c3 {
-      .label MoveDown=$13da
+    .label HandleDown=$13c0 {
+      .label MoveDown=$13d7
     }
-    .label NotInKeyJumpSpot=$125a
-    .label LeftUp=$1298
-    .label ControlNotDisabled=$122e
-    .label CheckFire=$125a
-    .label CheckUp=$129d
-    .label CheckFireUp=$126f
-    .label HandleFire=$137d {
+    .label NotInKeyJumpSpot=$1257
+    .label LeftUp=$1295
+    .label ControlNotDisabled=$122b
+    .label CheckFire=$1257
+    .label CheckUp=$129a
+    .label CheckFireUp=$126c
+    .label HandleFire=$137a {
       .label PrevCell=$1ffa
-      .label CheckEnemyToRight=$13b5
-      .label Finish=$13c0
-      .label NoPineapple=$139c
+      .label CheckEnemyToRight=$13b2
+      .label Finish=$13bd
+      .label NoPineapple=$1399
     }
-    .label HandleFire2=$1310 {
+    .label HandleFire2=$130d {
     }
     .label WillFall=$1ff5
-    .label UpUp=$12a7
-    .label NothingPressed=$12bb
-    .label DownUp=$12b6
-    .label CheckRight=$127f
+    .label UpUp=$12a4
+    .label NothingPressed=$12b8
+    .label DownUp=$12b3
+    .label CheckRight=$127c
     .label CurrentRow=$1ff3
-    .label CheckWhetherEnemies=$1410 {
-      .label DontKill=$1427
-      .label HitEnemy=$141d
-      .label EndLoop=$142f
-      .label EnemyLoop=$1412
-      .label Finish=$1437
+    .label CheckWhetherEnemies=$140d {
+      .label DontKill=$1424
+      .label HitEnemy=$141a
+      .label EndLoop=$142c
+      .label EnemyLoop=$140f
+      .label Finish=$1434
     }
-    .label HandleLeft=$1313 {
-      .label GoForKey=$133e
-      .label MoveLeft=$135b
-      .label NotInKeyJumpSpot=$132f
+    .label HandleLeft=$1310 {
+      .label GoForKey=$133b
+      .label MoveLeft=$1358
+      .label NotInKeyJumpSpot=$132c
     }
-    .label Complete2=$137a
+    .label Complete2=$1377
     .label EnemyKillPosition=$1ff7
     .label FireButtonUpThisFrame=$1ff8
-    .label ExitViaFire=$1379
+    .label ExitViaFire=$1376
     .label CurrentColumn=$1ff4
-    .label GoForKey=$123d
-    .label HandleUp=$13ee {
-      .label Climb=$1401
+    .label GoForKey=$123a
+    .label HandleUp=$13eb {
+      .label Climb=$13fe
     }
-    .label RightUp=$1289
-    .label CheckLeft=$128e
+    .label RightUp=$1286
+    .label CheckLeft=$128b
   }
   .label IsFalling=$1025
   .label Unlocking=$102b
@@ -356,31 +356,31 @@
   .label DeathTime=$4
   .label UpTreeSpot=$16
   .label ResetFlags=$1109 {
-    .label CheckJumpForKeyB=$11fe
+    .label CheckJumpForKeyB=$11fb
     .label KeyWasPressed=$112c
-    .label CheckRightA=$113e
-    .label CheckLeftA=$116b
-    .label CheckLeftB=$117a
-    .label CheckRightC=$115c
-    .label CheckUpB=$11a7
-    .label CheckRightB=$114d
-    .label CheckUpA=$1198
-    .label CheckJumpForKey=$11f2
-    .label CheckLeftC=$1189
+    .label CheckRightA=$113b
+    .label CheckLeftA=$1168
+    .label CheckLeftB=$1177
+    .label CheckRightC=$1159
+    .label CheckUpB=$11a4
+    .label CheckRightB=$114a
+    .label CheckUpA=$1195
+    .label CheckJumpForKey=$11ef
+    .label CheckLeftC=$1186
     .label KeyPressed=$1ff6
-    .label CheckFire=$1132
-    .label CheckUpC=$11b6
-    .label CheckDownB=$11d4
-    .label CheckDownC=$11e3
-    .label NoKeyPressed=$120a
-    .label CheckDownA=$11c5
+    .label CheckFire=$112f
+    .label CheckUpC=$11b3
+    .label CheckDownB=$11d1
+    .label CheckDownC=$11e0
+    .label NoKeyPressed=$1207
+    .label CheckDownA=$11c2
   }
   .label JumpedOverEnemy=$1032
   .label Invisible=$1031
   .label KeyJumpSpot=$e
   .label Reset=$1038 {
   }
-  .label Kill=$1438 {
+  .label Kill=$1435 {
   }
   .label GetStatus=$10ed {
   }
@@ -436,19 +436,19 @@
     .label CHAR_ID=$1ff3
   }
 }
-.label LIVES=$1b3d {
-  .label Draw=$1b50 {
-    .label Loop=$1b59
+.label LIVES=$1b3a {
+  .label Draw=$1b4d {
+    .label Loop=$1b56
     .label LivesLeft=$1ff3
-    .label DrawHeart=$1b62
-    .label DrawBlank=$1b6f
-    .label EndLoop=$1b74
+    .label DrawHeart=$1b5f
+    .label DrawBlank=$1b6c
+    .label EndLoop=$1b71
   }
-  .label Value=$1b3d
+  .label Value=$1b3a
   .label BlankCharacter=$20
-  .label Reset=$1b3f {
+  .label Reset=$1b3c {
   }
-  .label LoseLife=$1b49 {
+  .label LoseLife=$1b46 {
   }
   .label HeartCharacter=$53
   .label StartCharacterPosition=$80e5
@@ -461,111 +461,111 @@
   .label CurrentIndex=$dd0
   .label Sequence=$dd1
 }
-.label KEY=$16f4 {
-  .label ForceKey=$1708
-  .label InDitch2=$17e6
-  .label LoseLife=$1792 {
+.label KEY=$16f1 {
+  .label ForceKey=$1705
+  .label InDitch2=$17e3
+  .label LoseLife=$178f {
   }
-  .label Update=$1820 {
-    .label NoKey=$1868
-    .label MoveKey=$1859
-    .label NotGoingForKey=$1836
+  .label Update=$181d {
+    .label NoKey=$1865
+    .label MoveKey=$1856
+    .label NotGoingForKey=$1833
   }
-  .label WillCatch=$1700
-  .label ObjectIDs=$16f4
-  .label Unlocking=$17c5 {
-    .label Wait=$17e5
+  .label WillCatch=$16fd
+  .label ObjectIDs=$16f1
+  .label Unlocking=$17c2 {
+    .label Wait=$17e2
   }
   .label FallGracefullyFrame=$d
-  .label FallGracefully=$17e9 {
-    .label Wait=$180a
+  .label FallGracefully=$17e6 {
+    .label Wait=$1807
   }
-  .label Unlocking2=$180b {
+  .label Unlocking2=$1808 {
   }
-  .label Reset=$170d {
+  .label Reset=$170a {
   }
   .label CaughtKeyFrame=$18
   .label MissedKeyFrame=$c
-  .label GameOver=$17bc {
+  .label GameOver=$17b9 {
   }
-  .label InDitch=$17aa {
-    .label Wait=$17b5
+  .label InDitch=$17a7 {
+    .label Wait=$17b2
   }
-  .label Position=$16ff
-  .label DrawKey=$1869 {
-    .label NoKey=$188c
-    .label SkipCheck=$187d
+  .label Position=$16fc
+  .label DrawKey=$1866 {
+    .label NoKey=$1889
+    .label SkipCheck=$187a
   }
   .label InDitchFrame=$12
-  .label GotKey=$176d {
-    .label Complete=$178d
+  .label GotKey=$176a {
+    .label Complete=$178a
   }
-  .label HitByEnemy=$180e {
-    .label Wait=$181f
+  .label HitByEnemy=$180b {
+    .label Wait=$181c
   }
-  .label Initialise=$1709 {
+  .label Initialise=$1706 {
   }
   .label OpenLockFrame=$18
   .label TicksWhileUnlocking=$4
-  .label GoingForKey=$1716 {
-    .label CaughtKey=$1726
-    .label Complete=$1754
-    .label MissedKey=$1747
-    .label Wait=$175b
+  .label GoingForKey=$1713 {
+    .label CaughtKey=$1723
+    .label Complete=$1751
+    .label MissedKey=$1744
+    .label Wait=$1758
   }
-  .label Active=$1707
-  .label GoingForKey2=$17b9
-  .label MissedKey2=$17c2
-  .label GotKey2=$17bf
-  .label Positions=$16f8
+  .label Active=$1704
+  .label GoingForKey2=$17b6
+  .label MissedKey2=$17bf
+  .label GotKey2=$17bc
+  .label Positions=$16f5
   .label TicksWhileFalling=$2
-  .label DrawKey2=$178e
-  .label MissedKey=$175c {
+  .label DrawKey2=$178b
+  .label MissedKey=$1759 {
   }
 }
 .label JOY_FIRE=$40
-.label SCORE=$1a32 {
-  .label Add=$1a96 {
-    .label BetterOrEqualHigh=$1abd
-    .label SetNewBest=$1ada
-    .label CheckMiddle=$1ac2
-    .label BetterOrEqualMiddle=$1acd
-    .label CheckLow=$1ad2
-    .label NoNewBest=$1aef
+.label SCORE=$1a2f {
+  .label Add=$1a93 {
+    .label BetterOrEqualHigh=$1aba
+    .label SetNewBest=$1ad7
+    .label CheckMiddle=$1abf
+    .label BetterOrEqualMiddle=$1aca
+    .label CheckLow=$1acf
+    .label NoNewBest=$1aec
   }
-  .label DrawBest=$1af6 {
-    .label ScoreLoop=$1afa
-    .label PlotDigit=$1b11 {
+  .label DrawBest=$1af3 {
+    .label ScoreLoop=$1af7
+    .label PlotDigit=$1b0e {
     }
   }
-  .label HitEnemy=$1a5e {
+  .label HitEnemy=$1a5b {
   }
-  .label HitScores=$1a36
-  .label CheckScoreToAdd=$1a88 {
-    .label Finish=$1a95
+  .label HitScores=$1a33
+  .label CheckScoreToAdd=$1a85 {
+    .label Finish=$1a92
   }
-  .label Draw=$1b19 {
-    .label ScoreLoop=$1b1d
-    .label PlotDigit=$1b34 {
+  .label Draw=$1b16 {
+    .label ScoreLoop=$1b1a
+    .label PlotDigit=$1b31 {
     }
   }
   .label Amount=$1ff3
-  .label UnlockSection=$1a74 {
+  .label UnlockSection=$1a71 {
   }
-  .label ScoreToAdd=$1a40
-  .label JumpEnemy=$1a6a {
+  .label ScoreToAdd=$1a3d
+  .label JumpEnemy=$1a67 {
   }
-  .label UnlockCage=$1a7e {
+  .label UnlockCage=$1a7b {
   }
-  .label UnlockScore=$1a34
+  .label UnlockScore=$1a31
   .label CharacterSetStart=$30
-  .label JumpScore=$1a35
-  .label Value=$1a3a
-  .label AddToScore=$1a53 {
+  .label JumpScore=$1a32
+  .label Value=$1a37
+  .label AddToScore=$1a50 {
   }
-  .label KeyScore=$1a32
-  .label Best=$1a3d
-  .label Reset=$1a41 {
+  .label KeyScore=$1a2f
+  .label Best=$1a3a
+  .label Reset=$1a3e {
   }
 }
 .label ONE=$1
@@ -576,64 +576,64 @@
   .label JOY_PORT_1=$ff08
 }
 .label JOY_LEFT=$4
-.label CHAR_DRAWING=$1b7a {
+.label CHAR_DRAWING=$1b77 {
   .label BUFFER_ADDRESS=$d4
-  .label ClearAll=$1ba1 {
-    .label Loop=$1ba3
-    .label Finish=$1bb7
+  .label ClearAll=$1b9e {
+    .label Loop=$1ba0
+    .label Finish=$1bb4
   }
   .label TotalObjects=$39
   .label ObjectID=$1ff3
-  .label GetColour=$1bb8 {
+  .label GetColour=$1bb5 {
   }
   .label StartAddress=$d0
-  .label ColourObject=$1bc3 {
-    .label Hide=$1bd7
-    .label Loop=$1bf7
-    .label DrawBlank=$1c13
-    .label ColourChar=$1c0b
+  .label ColourObject=$1bc0 {
+    .label Hide=$1bd4
+    .label Loop=$1bf4
+    .label DrawBlank=$1c10
+    .label ColourChar=$1c08
     .label ColourRequest=$1ff6
-    .label Finish=$1c21
-    .label ColourObject=$1bdf
+    .label Finish=$1c1e
+    .label ColourObject=$1bdc
   }
-  .label Colour=$1b7b
+  .label Colour=$1b78
   .label BytesToRead=$1ff4
-  .label CalculateAddresses=$1b7d {
+  .label CalculateAddresses=$1b7a {
   }
   .label Column=$1ff6
   .label SCREEN_RAM=$8000
   .label SCREEN_ADDRESS=$d2
   .label Row=$1ff5
-  .label CurrentColour=$1b7c
+  .label CurrentColour=$1b79
   .label ByteID=$1ff7
   .label BlankCharacter=$60
-  .label LoopID=$1b7a
+  .label LoopID=$1b77
 }
-.label SOUND=$1c28 {
+.label SOUND=$1c25 {
   .label SoundOnOff=$e84b
-  .label PlayTick=$1c6f {
+  .label PlayTick=$1c6c {
   }
   .label Octave=$e84a
-  .label PlayGameOver=$1c3f {
+  .label PlayGameOver=$1c3c {
   }
-  .label Update=$1c85 {
-    .label Loop=$1c87
-    .label StopChannel=$1c94
-    .label EndLoop=$1c99
-    .label Finish=$1ca1
+  .label Update=$1c82 {
+    .label Loop=$1c84
+    .label StopChannel=$1c91
+    .label EndLoop=$1c96
+    .label Finish=$1c9e
   }
-  .label ScoreSound=$1c5f {
+  .label ScoreSound=$1c5c {
   }
-  .label StopAll=$1c7f {
+  .label StopAll=$1c7c {
   }
   .label Frequency=$e848
-  .label Countdown=$1c28
-  .label Setup=$1c29 {
+  .label Countdown=$1c25
+  .label Setup=$1c26 {
   }
-  .label MoveMonkey=$1c2f {
+  .label MoveMonkey=$1c2c {
   }
   .label CONTROL=$ff11
-  .label DeathSound=$1c4f {
+  .label DeathSound=$1c4c {
   }
 }
 .label JOY_UP_LAST=$2004
@@ -666,52 +666,52 @@
   .label ScreenRowLSB=$200c
 }
 .label ZP_COUNTER=$1ffd
-.label MONKEYDATA=$1449 {
-  .label SwingOverEnemyID=$14c7
-  .label CanMoveRight=$14df
-  .label CheckWhenMovingLeft=$150f
-  .label Column=$1461
-  .label CheckWhenMovingRight=$14f7
-  .label CanJump=$14af
-  .label ReplacementObjectID=$1479
-  .label Row=$1449
-  .label OnVine=$1497
-  .label WillFall=$147f
+.label MONKEYDATA=$1446 {
+  .label SwingOverEnemyID=$14c4
+  .label CanMoveRight=$14dc
+  .label CheckWhenMovingLeft=$150c
+  .label Column=$145e
+  .label CheckWhenMovingRight=$14f4
+  .label CanJump=$14ac
+  .label ReplacementObjectID=$1476
+  .label Row=$1446
+  .label OnVine=$1494
+  .label WillFall=$147c
 }
 .label ZP_ODD_EVEN=$1ffe
 .label JOY_RIGHT_LAST=$2001
-.label PINEAPPLE=$1966 {
-  .label Delete=$1a25 {
+.label PINEAPPLE=$1963 {
+  .label Delete=$1a22 {
   }
-  .label Draw=$1a18 {
+  .label Draw=$1a15 {
   }
-  .label Position=$1966
-  .label EnemyKillPosition=$1971
-  .label Update=$1995 {
-    .label EndFall=$19c7
-    .label StillFalling=$19b8
-    .label Finish=$19cc
-    .label ReachedNextPosition=$19a5
+  .label Position=$1963
+  .label EnemyKillPosition=$196e
+  .label Update=$1992 {
+    .label EndFall=$19c4
+    .label StillFalling=$19b5
+    .label Finish=$19c9
+    .label ReachedNextPosition=$19a2
   }
   .label NewPosition=$1ff3
-  .label FallCountdown=$196b
-  .label IsFalling=$1972
+  .label FallCountdown=$1968
+  .label IsFalling=$196f
   .label Column=$b
   .label FirstCharacter=$69
-  .label Positions=$1967
+  .label Positions=$1964
   .label BlankCharacter=$0
-  .label Reset=$1973 {
+  .label Reset=$1970 {
   }
-  .label StartFall=$197f {
-    .label Finish=$1994
+  .label StartFall=$197c {
+    .label Finish=$1991
   }
-  .label EnemyHitPositions=$196d
+  .label EnemyHitPositions=$196a
   .label GameTickAddOnHit=$f
-  .label CheckPineappleHitEnemy=$19cd {
-    .label HitEnemy=$19e6
+  .label CheckPineappleHitEnemy=$19ca {
+    .label HitEnemy=$19e3
     .label EnemyID=$1ffb
-    .label EndLoop=$1a0f
-    .label EnemyLoop=$19d8
-    .label Finish=$1a17
+    .label EndLoop=$1a0c
+    .label EnemyLoop=$19d5
+    .label Finish=$1a14
   }
 }

@@ -216,7 +216,7 @@ MONKEY:{
 
 		KeyWasPressed:
 
-		sta VIC.SCREEN_RAM + 1
+		//sta VIC.SCREEN_RAM + 1
 		sta KeyPressed
 
 		CheckFire:
